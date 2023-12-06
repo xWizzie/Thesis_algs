@@ -69,8 +69,9 @@ def precision(y_true, y_pred):
 
 
 def nearest_neighbors(Learning_set, new_instance, kappa):
-    return sorted(Learning_set, key=lambda instance: euclidean_distance(instance, new_instance))[:kappa]
-
+    distances = [(euclidean_distance(instance, new_instance), instance) for instance in Learning_set if instance != new_instance]
+    distances.sort(key=lambda x: x[0])
+    return [instance for _, instance in distances[:kappa]]
 
 def euclidean_distance(instance1, instance2):
     return math.sqrt(sum((a - b) ** 2 for a, b in zip(instance1.coords, instance2.coords)))
