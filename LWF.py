@@ -59,6 +59,6 @@ def gamma_function(new_instance, instance, last_neighbor, t):
         return t + (1 - t) * (di2/dk2) 
     
 
-returned_set,N = LWF(learning_set, DataInstance([6, 2], 'A'), 3, 0.25, 1)
+returned_set,N = LWF(learning_set, DataInstance([6, 2], 'A'), 5, 0.25, 1)
 visualize_data_local(returned_set,N)
 
